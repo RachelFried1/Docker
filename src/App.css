@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap'); 
+.nav-bar {
+  background-color: #44cd35;
+  padding: 5px 20px;
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  font-family: 'Patrick Hand', sans-serif; 
+  height: 90px;
+}
+
+.nav-center {
+  display: flex;
+  justify-content: center; /* Center the links and home image */
+  align-items: center;
+  gap: 40px;
+  flex-grow: 1;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.nav-link, .home-link {
+  text-decoration: none;
+  color: rgb(251, 82, 146);
+  font-size: 25px;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover, .home-link:hover {
+  color: #61dafb;
+}
+
+.nav-link.active, .home-link.active {
+  font-weight: bold;
+  color: #61dafb;
+}
+
+.cart-link {
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-right: 20px; 
+}
+
+.cart-icon {
+  width: 70px;  
+  height: 70px;
+}
+
+.cart-count {
+  position: absolute;
+  top: 40px;
+  right: -11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.circle {
+  display: inline-block;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background-color: #e5749d;
+  color: #fff;
+  text-align: center;
+  line-height: 24px;
+  font-size: 20px;
+  font-family: 'Patrick Hand', sans-serif; 
+}
+
+.nav-link-image {
+  padding-top: 65px; /* Adjust for centering */
+  width: 180px;
+  height: auto;
+}
