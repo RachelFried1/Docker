@@ -1,21 +1,23 @@
-FROM node:20-alpine AS build
+# Use a base Python image
+FROM python:3.13.2-slim
 
+# Set the working directory in the container
 WORKDIR /app
 
-COPY package.json package-lock.json ./
+# Copy all the directory into the container (except of the .dockerignor files)
 
-RUN npm install
+COPY requirements.txt .
+
+RUN pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org -r requirements.txt
 
 COPY . .
 
-RUN npm run build
+# Expose the port on which the Flask app will run
+EXPOSE 5000
 
-FROM nginx:stable-alpine
+ENV ROOM_FILES_PATH "rooms/"
+ENV USERS_PATH "users.csv"
+ENV FLASK_ENV development
 
-RUN rm -rf /usr/share/nginx/html/*
-
-COPY --from=build /app/dist /usr/share/nginx/html
-
-EXPOSE 8080
-
-CMD ["nginx", "-g", "daemon off;"]
+# Run the Flask app
+CMD ["python", "./chatApp.py"]
