@@ -1,6 +1,11 @@
 body {
     scroll-behavior: smooth;
-    background-color: #34495e;
+    background-image: url('https://storage.googleapis.com/shv-sample-app-bucket/Background-boat.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    margin: 0;
     font-family: sans-serif;
 }
 
